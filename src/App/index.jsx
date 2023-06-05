@@ -1,4 +1,5 @@
 import React from "react";
+import { users } from "../mock/mock";
 
 class App extends React.Component {
   constructor(props) {
@@ -22,6 +23,11 @@ class App extends React.Component {
         <div>Count:{this.state.count}</div>
         <button onClick={onPlus}>+</button>
         <button onClick={onMinus}>-</button>
+        {users.map((v) => (
+          <h1>
+            {v.id}-{v.name}={this.props.data}
+          </h1>
+        ))}
       </React.Fragment>
     );
   }
