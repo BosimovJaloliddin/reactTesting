@@ -11,7 +11,7 @@ const Home = () => {
     <div>
       <h1>Count:{state.length}</h1>
       {state.map((v) => (
-        <h1>
+        <h1 key={v.id}>
           {v.id}-{v.name} <button onClick={() => onDelete(v.id)}>delete</button>
         </h1>
       ))}
