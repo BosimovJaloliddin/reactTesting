@@ -1,15 +1,15 @@
 import React from "react";
 import Home from "../components/Home";
 import Navbar from "../components/Navbar";
-import ContectList from "../contex";
+import ContextList from "../contex";
 
-const Root = () => {
+const App = () => {
   return (
-    <ContectList>
+    <ContextList>
       <Navbar />
       <Home />
-    </ContectList>
+    </ContextList>
   );
 };
 
-export default Root;
+export default App;

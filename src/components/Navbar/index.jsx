@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { CreatList } from "../../contex";
+import { StudentList } from "../../contex";
 
 const Navbar = () => {
-  const data = useContext(CreatList);
+  const data = useContext(StudentList);
   return (
     <div
       style={{
