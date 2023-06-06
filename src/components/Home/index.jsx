@@ -1,21 +1,22 @@
-import React, { useContext } from "react";
-import { StudentList } from "../../contex";
+import React from "react";
+import { houses } from "../../utils";
+import { Wrapp, Box, WrapHouse, HouseImage } from "../../styled";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-  const [state, setState] = useContext(StudentList);
-  const onDelete = (id) => {
-    let res = state.filter((v) => v.id !== id);
-    setState(res);
-  };
+  const navigate = useNavigate();
   return (
-    <div>
-      <h1>Count:{state.length}</h1>
-      {state.map((v) => (
-        <h1 key={v.id}>
-          {v.id}-{v.name} <button onClick={() => onDelete(v.id)}>delete</button>
-        </h1>
-      ))}
-    </div>
+    <Wrapp>
+      {houses.map(
+        ({ id, name, hidden, pathname, urlImage }) =>
+          !hidden && (
+            <WrapHouse key={id} onClick={() => navigate(pathname)}>
+              <HouseImage src={urlImage} alt="image" />
+              <Box>{name}</Box>
+            </WrapHouse>
+          )
+      )}
+    </Wrapp>
   );
 };
 
