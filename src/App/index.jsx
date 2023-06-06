@@ -1,31 +1,29 @@
 import React, { Component } from "react";
-import { createGlobalStyle, ThemeProvider } from "styled-components";
+import { ThemeProvider, createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
-    body{
-        background: ${(props) => props.theme.bg};
-        background: ${(props) => props.theme.cl};
-    }
+  body{
+    background: ${(props) => props.theme.bg};
+    color: ${(props) => props.theme.cl};
+  }
 `;
-class App extends Component {
+
+export default class App extends Component {
   state = {
-    ligth: false,
+    light: false,
   };
   render() {
-    const theme = {
-      bg: this.state.ligth ? "white" : "black",
-      cl: this.state.ligth ? "black" : "white",
+    const them = {
+      bg: this.state.light ? "white" : "black",
+      cl: this.state.light ? "black" : "white",
     };
-    const onClick = () => {
-      this.setState({ ligth: !this.state.ligth });
-    };
-    console.log(this.state.ligth);
     return (
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={them}>
         <GlobalStyle />
-        <button onClick={onClick}>click</button>
+        <button onClick={() => this.setState({ light: !this.state.light })}>
+          click
+        </button>
       </ThemeProvider>
     );
   }
 }
-export default App;
