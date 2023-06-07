@@ -5,7 +5,7 @@ import { Routes, Route } from "react-router-dom";
 const Root = () => {
   return (
     <Routes>
-      {houses.map(({ id, pathname, element }) => {
+      {houses.map(({ id, pathname, element, name }) => {
         return <Route key={id} path={pathname} element={element} />;
       })}
     </Routes>
