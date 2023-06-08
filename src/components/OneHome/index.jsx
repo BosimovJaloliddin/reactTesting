@@ -1,22 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Wrapp, Box, WrapHouse, HouseImage } from "../../styled";
-import { houses } from "../../utils";
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { houses } from "../../mock/mock";
 
 const Villa = () => {
-  const location = useLocation();
+  const [data, setData] = useState({});
+  const params = useParams();
+
+  useEffect(() => {
+    let res = houses.filter((v) => v.name === params.id);
+    setData(...res);
+  }, [params.id]);
   return (
     <div>
       <Wrapp>
-        {houses.map(
-          ({ id, name, pathname, urlImage }) =>
-            pathname === location.pathname && (
-              <WrapHouse key={id}>
-                <HouseImage src={urlImage} alt="image" />
-                <Box>{name}</Box>
-              </WrapHouse>
-            )
-        )}
+        <WrapHouse>
+          <HouseImage src={data.urlImage} alt="image" />
+          <Box>{data.name}</Box>
+        </WrapHouse>
       </Wrapp>
     </div>
   );
