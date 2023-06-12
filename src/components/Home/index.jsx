@@ -7,6 +7,7 @@ const Home = () => {
   const navigate = useNavigate();
   return (
     <Wrapp>
+      <button onClick={() => navigate(1)}>go</button>
       {houses.map(({ id, name, urlImage }) => (
         <WrapHouse key={id} onClick={() => navigate(`/${name}`)}>
           <HouseImage src={urlImage} alt="image" />
