@@ -78,3 +78,11 @@ export const houses = [
     details: { bed: 1, bath: 2, sq: 234 },
   },
 ];
+
+export const dataCars = [
+  { id: 1, name: "nexia", year: 2007 },
+  { id: 2, name: "nexia", year: 2007 },
+  { id: 3, name: "nexia", year: 2007 },
+  { id: 4, name: "nexia", year: 2007 },
+  { id: 5, name: "nexia", year: 2007 },
+];
