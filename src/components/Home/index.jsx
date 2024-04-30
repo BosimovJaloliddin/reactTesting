@@ -5,6 +5,9 @@ import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const navigate = useNavigate();
+  const addToken = () => {
+    localStorage.setItem("token", true);
+  };
   return (
     <Wrapp>
       <button onClick={() => navigate(1)}>go</button>
@@ -14,6 +17,7 @@ const Home = () => {
           <Box>{name}</Box>
         </WrapHouse>
       ))}
+      <button onClick={addToken}>add token</button>
     </Wrapp>
   );
 };

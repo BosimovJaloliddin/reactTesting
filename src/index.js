@@ -2,14 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import "./index.css";
-// import Root from "./Root/root";
-import Cars from "./components/dataCars";
+import Root from "./Root/root";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Cars />
+      <Root />
     </BrowserRouter>
   </React.StrictMode>
 );

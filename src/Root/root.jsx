@@ -5,7 +5,7 @@ import { Routes, Route } from "react-router-dom";
 const Root = () => {
   return (
     <Routes>
-      {pages.map(({ id, path, element }) => {
+      {pages?.map(({ id, path, element }) => {
         return <Route key={id} path={path} element={element} />;
       })}
     </Routes>
