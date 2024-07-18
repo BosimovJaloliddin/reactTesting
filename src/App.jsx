@@ -1,23 +1,25 @@
-import { useState } from "react";
-import Modal from "./components/Modal";
+import { Suspense, lazy, useState } from "react";
+
+const Modal = lazy(() => import("./components/Modal"));
+// import Modal from "./components/Modal";
 
 const App = () => {
-  const [openPortal, setOpenPortal] = useState(false);
+  const [query, setQuery] = useState("");
   return (
-    <div
-      style={{
-        maxWidth: "1240px",
-        margin: "100px auto",
-        display: "flex",
-        justifyContent: "center",
-      }}
-    >
-      {openPortal ? (
-        <Modal open={openPortal} setOpenPortal={setOpenPortal} />
-      ) : null}
-      <button onClick={() => setOpenPortal(!openPortal)}>Open Modal</button>
-    </div>
+    <>
+      <label>
+        Search albums:
+        <input value={query} onChange={(e) => setQuery(e.target.value)} />
+      </label>
+      <Suspense fallback={<h2>Loading...</h2>}>
+        <Modal query={query} />
+      </Suspense>
+    </>
   );
 };
 
 export default App;
+
+// function Loading() {
+//   return <h2>🌀 Loading...</h2>;
+// }
