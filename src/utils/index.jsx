@@ -10,8 +10,8 @@ export const pages = [
   },
   {
     id: 2,
-    name: "OneHouse",
-    path: "/:id",
+    name: "News",
+    path: "/news",
     element: <Villa />,
   },
 ];

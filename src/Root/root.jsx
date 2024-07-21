@@ -1,37 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Navabr from "../components/Navabr";
 
-const App = () => {
-  const [api, setApi] = useState("");
-  const [url, setUrl] = useState("https://jsonplaceholder.typicode.com/todos");
-
-  const getUrl = ({ target: { value } }) => {
-    console.log(value);
-    setUrl(value);
-  };
-
-  useEffect(() => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((info) => {
-        setApi(info);
-      });
-  }, [url]);
-
-  console.log(api);
-
+const Root = () => {
   return (
-    <div className="wrap">
-      <div className="downloadurl">
-        <input
-          onChange={getUrl}
-          type="text"
-          className="urlinput"
-          placeholder="Enter your YouTube URL"
-        />
-        <button className="btn">Download</button>
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Navabr />}>
+          <Route path="/" element={<h1>Hellow</h1>} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 };
 
-export default App;
+export default Root;
